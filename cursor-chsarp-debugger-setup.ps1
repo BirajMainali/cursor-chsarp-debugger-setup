@@ -125,6 +125,7 @@ $projectRootPath = Read-Host "Enter the project root directory path: (eg: Just C
 Write-Host ""
 Write-Host "Project Root: $projectRootPath" -ForegroundColor Green
 $projectPathAfterRootPath = Read-Host "Enter the project path after root directory: (eg: /src/Acme.BookStore.HostApi.Host)"
+$projectPathAfterRootPath = $projectPathAfterRootPath.TrimStart('\','/') # Remove leading slashes
 $projectName = Split-Path $projectPathAfterRootPath -Leaf
 Write-Host "Full Project Path: $projectRootPath\$projectPathAfterRootPath" -ForegroundColor Green
 Write-Host "Project Name: $projectName" -ForegroundColor Green
