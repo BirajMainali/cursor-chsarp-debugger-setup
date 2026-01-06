@@ -120,11 +120,14 @@ Write-Host "Cleaned up archive file." -ForegroundColor Green
 Write-Host ""
 Write-Host "netcoredbg is ready at: $debuggerPath" -ForegroundColor Green
 Write-Host ""
-$projectPath = Read-Host "Enter the full directory path of your startup project (where the .csproj is located)"
+$projectRootPath = Read-Host "Enter the project root directory path: (eg: Just C:\Projects\MyApp)"
 
-$projectName = Split-Path -Path $projectPath -Leaf
 Write-Host ""
-Write-Host "Target Project: $projectName" -ForegroundColor Cyan
+Write-Host "Project Root: $projectRootPath" -ForegroundColor Green
+$projectPathAfterRootPath = Read-Host "Enter the project path after root directory: (eg: /src/Acme.BookStore.HostApi.Host)"
+$projectName = Split-Path $projectPathAfterRootPath -Leaf
+Write-Host "Full Project Path: $projectRootPath\$projectPathAfterRootPath" -ForegroundColor Green
+Write-Host "Project Name: $projectName" -ForegroundColor Green
 
 $dotnetVersions = 5..10
 
@@ -149,6 +152,7 @@ if ($selection -ge 1 -and $selection -le $dotnetVersions.Count) {
 }
 
 $fixedDebuggerPath = "$debuggerPath\netcoredbg" -replace '\\','\\' 
+$projectPathAfterRootPath = $projectPathAfterRootPath -replace '\\','\\'
 
 $debugConfiguration = @"
 {
@@ -159,7 +163,7 @@ $debugConfiguration = @"
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "`${workspaceFolder}`\\bin\\Debug\\$selectedVersion\\$projectName.dll",
+            "program": "`${workspaceFolder}`\\$projectPathAfterRootPath\\bin\\Debug\\$selectedVersion\\$projectName.dll",
             "cwd": "`${workspaceFolder}`",
             "pipeTransport": {
                 "pipeCwd": "`${workspaceFolder}`",
@@ -182,7 +186,7 @@ $debugConfiguration = @"
 "@
 
 
-$vscodeDir = Join-Path $projectPath ".vscode"
+$vscodeDir = Join-Path $projectRootPath ".vscode"
 $launchPath = Join-Path $vscodeDir "launch.json"
 
 # Ensuring that the vscode directory exists in the project path
