@@ -6,7 +6,7 @@ Follow these incremental steps to configure your .NET debugging environment in C
 
 ### 1. Initialize Setup
 
-Run the following command in your terminal:
+Run the following command in your terminal and follow the instruction:
 
 ```powershell
 .\cursor-chsarp-debugger-setup.ps1
