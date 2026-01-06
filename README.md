@@ -23,7 +23,7 @@ Press **F5** to initiate the debugger. When prompted, follow this sequence:
 2. **Create tasks.json**: Choose the option **Create tasks.json file from template**.
 <img width="1148" height="267" alt="image" src="https://github.com/user-attachments/assets/ebb066a7-9fb0-49ac-9b42-9e17b7fc5f70" />
 
-3. **Choose MS Build**: Select **MS Build** (or the template matching your project type).
+3. **Choose MS Build**: Select **.NET Core** (or the template matching your project type).
 4. <img width="1164" height="271" alt="image" src="https://github.com/user-attachments/assets/403434c0-cf34-4fe9-93c9-0025983f30ec" />
 
 
