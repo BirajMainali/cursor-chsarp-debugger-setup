@@ -165,7 +165,7 @@ $debugConfiguration = @"
             "request": "launch",
             "preLaunchTask": "build",
             "program": "`${workspaceFolder}`\\$projectPathAfterRootPath\\bin\\Debug\\$selectedVersion\\$projectName.dll",
-            "cwd": "`${workspaceFolder}`",
+            "cwd": "`${workspaceFolder}\\$projectPathAfterRootPath`",
             "pipeTransport": {
                 "pipeCwd": "`${workspaceFolder}`",
                 "pipeProgram": "powershell",
