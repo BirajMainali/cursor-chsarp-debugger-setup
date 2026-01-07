@@ -40,15 +40,6 @@ Once setup is complete, open your IDE and press **F5** to start debugging. When 
 
 After configuration, you can start debugging smoothly by pressing **F5** in your IDE.
 
-## Advanced Configuration
-
-### Global Settings
-
-To make this configuration available for **all** your .NET projects:
-
-1. Navigate to **Preferences > User Settings** in your IDE
-2. Add the launch configuration as described in the [VS Code issue discussion](https://github.com/microsoft/vscode/issues/18401#issuecomment-272400316)
-
 ## Contributing
 
 Feel free to submit issues and enhancement requests!
