@@ -121,7 +121,7 @@ Write-Host ""
 Write-Host "netcoredbg is ready at: $debuggerPath" -ForegroundColor Green
 Write-Host ""
 $projectRootPath = Read-Host "Enter the project root directory path: (eg: Just C:\Projects\MyApp)"
-
+$projectRootPath = $projectRootPath.TrimEnd('\','/') # Remove trailing slashes
 Write-Host ""
 Write-Host "Project Root: $projectRootPath" -ForegroundColor Green
 $projectPathAfterRootPath = Read-Host "Enter the project path after root directory: (eg: /src/Acme.BookStore.HostApi.Host)"
@@ -152,7 +152,7 @@ if ($selection -ge 1 -and $selection -le $dotnetVersions.Count) {
 "
 }
 
-$fixedDebuggerPath = "$debuggerPath\netcoredbg" -replace '\\','\\' 
+$fixedDebuggerPath = "$debuggerPath\netcoredbg\netcoredbg.exe" -replace '\\','\\' 
 $projectPathAfterRootPath = $projectPathAfterRootPath -replace '\\','\\'
 
 $debugConfiguration = @"
